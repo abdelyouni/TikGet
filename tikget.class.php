@@ -21,13 +21,8 @@ class TikGet
         $this->url = $url;
     }
 
-    public function get(){
-        if ($this->url == null || strpos($this->url, 'tiktok.com/') === false) {
-            return false;
-        }
-
-        $protocole = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != '' && $_SERVER['SERVER_PORT']  == 443 )?'https://':'http://';
-        $tiktokUrl = trim($this->url);   
+    private function curlTikTok($tiktokUrl){
+        $tiktokUrl = trim($tiktokUrl);   
         $ch = curl_init();
         $options = array(
             CURLOPT_URL            => $tiktokUrl,
@@ -52,10 +47,23 @@ class TikGet
         }
         $resp = curl_exec($ch);
         curl_close($ch);
+        return $resp;
+    }
+
+    public function get(){
+        if ($this->url == null || strpos($this->url, 'tiktok.com/') === false) {
+            return false;
+        }
+
+        $protocole = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != '' && $_SERVER['SERVER_PORT']  == 443 )?'https://':'http://';
+        
+        $tiktokUrl = trim($this->url);
+        
+        $resp = $this->curlTikTok($tiktokUrl);
         
         if(strpos($resp, $this->patterns[0]) !== false){
             $tiktokUrl = explode($this->patterns[1],explode($this->patterns[0],$resp)[1])[0];
-            $resp = curlTikTok($tiktokUrl);
+            $resp = $this->curlTikTok($tiktokUrl);
         }
     
         $json = explode($this->patterns[2],explode($this->patterns[3],explode($this->patterns[4],$resp)[1])[0])[1];

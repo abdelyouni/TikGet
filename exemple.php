@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TikGet - TikTok video downloader mini library
+ * TikGet - TikTok video downloader php class
  *
  * @package TikGet
  * @version 1.0.0
@@ -9,7 +9,7 @@
  * @see     https://github.com/abdelyouni/TikGet
  */
 
-require 'tiktok.class.php';
+require 'tikget.class.php';
 
 $video = new TikGet('https://www.tiktok.com/@billieeilish/video/6894081763379924229');
 echo(json_encode($video->get()));

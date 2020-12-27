@@ -1,6 +1,6 @@
 <?php
 /**
- * TikGet - TikTok video downloader mini library
+ * TikGet - TikTok video downloader php class
  *
  * @package TikGet
  * @version 1.0.0
@@ -8,7 +8,7 @@
  * @see     https://github.com/abdelyouni/TikGet
  */
 
-require 'tiktok.class.php';
+require 'tikget.class.php';
 $directUrl = urldecode($_GET['u']);
 $title = urldecode($_GET['t']);
 $format = $_GET['f'];

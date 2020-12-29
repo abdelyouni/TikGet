@@ -81,7 +81,7 @@ class TikGet
         $video->likes = $json->props->pageProps->itemInfo->itemStruct->stats->diggCount;
         $video->shares = $json->props->pageProps->itemInfo->itemStruct->stats->shareCount;
         $video->comments = $json->props->pageProps->itemInfo->itemStruct->stats->commentCount;
-        $video->vues = $json->props->pageProps->itemInfo->itemStruct->stats->playCount;
+        $video->views = $json->props->pageProps->itemInfo->itemStruct->stats->playCount;
         $video->title = $json->props->pageProps->metaParams->title;
         $video->keywords = $json->props->pageProps->metaParams->keywords;
         $video->description = $json->props->pageProps->metaParams->description;

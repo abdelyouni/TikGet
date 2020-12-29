@@ -44,7 +44,7 @@ the generated download link will be found in :
 | Video Likes Count  | $datas->video->likes  |
 |  Video Shares Count | $datas->video->shares  |
 | Video Comments Count  | $datas->video->comments  |
-|  Video Vues Count | $datas->video->vues  |
+|  Video Views Count | $datas->video->views  |
 |  Video Original Url | $datas->video->original_url  |
 |  Video Download Url | $datas->video->download_url  |
 

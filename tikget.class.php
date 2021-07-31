@@ -82,10 +82,10 @@ class TikGet
         $video->shares = $json->props->pageProps->itemInfo->itemStruct->stats->shareCount;
         $video->comments = $json->props->pageProps->itemInfo->itemStruct->stats->commentCount;
         $video->views = $json->props->pageProps->itemInfo->itemStruct->stats->playCount;
-        $video->title = $json->props->pageProps->metaParams->title;
-        $video->keywords = $json->props->pageProps->metaParams->keywords;
-        $video->description = $json->props->pageProps->metaParams->description;
-        $video->original_url = $json->props->pageProps->metaParams->canonicalHref;
+        $video->title = $json->props->pageProps->seoProps->metaParams->title;
+        $video->keywords = $json->props->pageProps->seoProps->metaParams->keywords;
+        $video->description = $json->props->pageProps->seoProps->metaParams->description;
+        $video->original_url = $json->props->pageProps->seoProps->metaParams->canonicalHref;
         $video->download_url = $protocole.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])
                             .'/'.$this->FORCE_DOWNLOAD_FILE
                             .'?u='. urlencode($json->props->pageProps->itemInfo->itemStruct->video->downloadAddr)
